@@ -9,8 +9,19 @@ export Q := @
 export VERBOSE := 0
 endif
 
-all :  getESPSDK format lizard cppcheck
+all :  getESPSDK format lizard cppcheck target
 
+# Output directory
+BUILD ?= target
+
+# build  target
+.PHONY: target
+target: | $(BUILD)
+	$(Q) cd $(BUILD);  idf.py build;
+# flash  target
+.PHONY: flash
+flash_int: | $(BUILD)
+	$(Q) cd $(BUILD);  idf.py -p /dev/ttyUSB0 flash monitor;
 
 .PHONY: getESPSDK
 getESPSDK: |

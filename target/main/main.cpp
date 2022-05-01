@@ -7,7 +7,7 @@
    CONDITIONS OF ANY KIND, either express or implied.
 */
 
-//#include <Timeservice.hpp>
+#include <Timeservice.hpp>
 #include <iostream>
 
 #ifdef __cplusplus
@@ -24,6 +24,6 @@ void app_main(void)
 	for(;;)
 	{
 		std::cout << "Running a test ! \n ";
-		//	Timeservice::wait_sec(5);
+		Timeservice::wait_sec(5);
 	}
 }
