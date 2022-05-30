@@ -9,7 +9,7 @@ export Q := @
 export VERBOSE := 0
 endif
 
-all :  getESPSDK format lizard cppcheck target
+all :  getESPSDK  format lizard cppcheck target 
 
 # Output directory
 BUILD ?= target
@@ -20,12 +20,17 @@ target: | $(BUILD)
 	$(Q) cd $(BUILD);  idf.py build;
 # flash  target
 .PHONY: flash
-flash_int: | $(BUILD)
+flash: | $(BUILD)
 	$(Q) cd $(BUILD);  idf.py -p /dev/ttyUSB0 flash monitor;
+	# flash integration target slow
+.PHONY: flash_slow
+flash_slow: | $(INT_BUILD)
+	$(Q) cd $(BUILD);  idf.py -b 115200 -p /dev/ttyUSB0 flash monitor;
 
 .PHONY: getESPSDK
 getESPSDK: |
 	$(Q) ./tools/installESPIDF.sh
+
 
 
 .PHONY: format
@@ -43,3 +48,6 @@ clang: |
 .PHONY: cppcheck
 cppcheck: |
 	$(Q) ./tools/cppcheck.sh;
+	
+
+
