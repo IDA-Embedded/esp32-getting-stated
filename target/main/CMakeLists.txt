@@ -29,18 +29,26 @@ idf_component_register(SRC_DIRS "."
              )
 
 ###############################################################################################################
-#						ADDON FOR ESP32 SPECIFIC SiP DEFINITIONS
+#						ADDON FOR PROJECT SPECIFIC DEFINITIONS
 ###############################################################################################################
             
 target_compile_definitions(${COMPONENT_LIB} PRIVATE
 __ESP32__=1
 PROJECT_NAME="TEMPLATE"
 )
+target_compile_definitions(${COMPONENT_LIB} PRIVATE
+GLOBAL_MQTT_SERVER="mqtt://1.1.1.1:1883"
+MQTT_OTA_TOPIC="mqtt/${PROJECT_NAME}"
+WIFI_SSID_LOCAL="IDA Embedded Workshop"
+WIFI_PWD_LOCAL="abcd1234"
+SERVER_IP="1.1.1.1"
+SERVER_PORT=1880
+)
 
 ###############################################################################################################
 #						INSTALL SECRETS
 ###############################################################################################################
 
-include(../../cmake/secrets.cmake)
+#include(../../cmake/secrets.cmake)
 
 
