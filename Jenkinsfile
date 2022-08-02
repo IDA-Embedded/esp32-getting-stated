@@ -36,7 +36,7 @@ pipeline {
         stage('Code Complexity Analysis'){   
             steps {
             echo "Doing Complexity"
-                sh 'make complexity'
+              //  sh 'make complexity'
             }
     }
 
