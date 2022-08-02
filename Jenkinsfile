@@ -44,7 +44,7 @@ pipeline {
 
         stage('Build artifact'){
             steps{
-                echo "Building artifact ... "
+                echo "Building artifact .... "
                 sh './tools/build_artifact.sh ${PROJECT_NAME}'
             }
         }
