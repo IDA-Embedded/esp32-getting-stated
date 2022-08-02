@@ -8,10 +8,13 @@ set(COMP_PATH "./Components")
 
 idf_component_register(SRC_DIRS "."
              INCLUDE_DIRS ""   
+             
              SRC_DIRS "${COMP_PATH}/ErrorHandler/src/"
              INCLUDE_DIRS "${COMP_PATH}/ErrorHandler/include/"
+
              SRC_DIRS "${COMP_PATH}/Timeservice/src/"
              INCLUDE_DIRS "${COMP_PATH}/Timeservice/include/"
+
              INCLUDE_DIRS "${COMP_PATH}/Common_Include/"
              
               SRC_DIRS "${COMP_PATH}/esp32Cam_API/src/"
@@ -34,7 +37,7 @@ idf_component_register(SRC_DIRS "."
             
 target_compile_definitions(${COMPONENT_LIB} PRIVATE
 __ESP32__=1
-PROJECT_NAME="TEMPLATE"
+PROJECT_NAME="IDAE_ESP_GETTING_STARTED"
 )
 target_compile_definitions(${COMPONENT_LIB} PRIVATE
 GLOBAL_MQTT_SERVER="mqtt://1.1.1.1:1883"

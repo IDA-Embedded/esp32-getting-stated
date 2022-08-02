@@ -9,8 +9,9 @@ export Q := @
 export VERBOSE := 0
 endif
 
-all :  getESPSDK  format lizard cppcheck target 
-
+#all :  getESPSDK  format lizard cppcheck target 
+all :    target 
+ci : format target 
 # Output directory
 BUILD ?= target
 
