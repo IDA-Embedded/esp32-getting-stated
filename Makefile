@@ -10,7 +10,7 @@ export VERBOSE := 0
 endif
 
 #all :  getESPSDK  format lizard cppcheck target 
-all :    target 
+all : format target 
 ci : format target 
 # Output directory
 BUILD ?= target
@@ -38,8 +38,8 @@ getESPSDK: |
 format: |
 	$(Q) ./tools/format.sh;
 	
-.PHONY: lizard
-lizard: |
+.PHONY: complexity
+complexity: |
 	$(Q) ./tools/lizard.sh;
 	
 .PHONY: clang
