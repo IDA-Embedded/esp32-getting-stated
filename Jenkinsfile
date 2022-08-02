@@ -66,7 +66,7 @@ pipeline {
             success {
                 echo "successfully build the project!"
                 recordIssues(enabledForFailure: true, aggregatingResults: true, tools: [cppCheck(pattern: 'docs/cppcheck/cppcheck.xml')])
-
+/*
                 publishHTML (target : [allowMissing: false,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
@@ -74,7 +74,7 @@ pipeline {
                 reportFiles: 'complexity.html',
                 reportName: 'Complexity report',
                 reportTitles: 'The Report'])
-
+*/
             }
             
         }
