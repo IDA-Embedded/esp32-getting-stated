@@ -13,19 +13,7 @@ pipeline {
     stages{
 
 
- stage('Build target'){
-            steps{
-                echo "Build target"    
-                         
-             
-               sh '''
-                . /home/server/esp/esp-idf/export.sh;
-                export PATH=/home/server/.local/bin/:$PATH;                   
-                make ci
-               '''
-               
-            }
-        }
+
 
     stage('Static Code Analysis'){
            
@@ -39,6 +27,19 @@ pipeline {
                 sh 'make complexity'
             }
     }
+     stage('Build target'){
+            steps{
+                echo "Build target"    
+                         
+             
+               sh '''
+                . /home/server/esp/esp-idf/export.sh;
+                export PATH=/home/server/.local/bin/:$PATH;                   
+                make ci
+               '''
+               
+            }
+        }
 
 
 
@@ -63,10 +64,8 @@ pipeline {
 
     }
         post{
-            success {
-                echo "successfully build the project!"
-                recordIssues(enabledForFailure: true, aggregatingResults: true, tools: [cppCheck(pattern: 'docs/cppcheck/cppcheck.xml')])
-
+            always{
+                   recordIssues(enabledForFailure: true, aggregatingResults: true, tools: [cppCheck(pattern: 'docs/cppcheck/cppcheck.xml')])
                 publishHTML (target : [allowMissing: false,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
@@ -75,6 +74,11 @@ pipeline {
                 reportName: 'Complexity report',
                 reportTitles: 'The Report'])
 
+            }
+            success {
+                echo "successfully build the project!"
+             
+          
             }
             
         }
