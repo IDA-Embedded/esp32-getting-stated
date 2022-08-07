@@ -10,7 +10,5 @@ find . -not \( -path ./target/main/Components/esp32Cam_API -prune -o -path ./tar
 -name \*.h  -o -name \*.hpp -o -name \*.c   -o -name \*.cpp
 
 
-#find . -not \( -path ./target/main/Components/esp32Cam_API -prune -o -path ./target/main/Components/image_conversions -prune -o -path ./target/build -prune \) \
-#-name \*.h  -o -name \*.hpp -o -name \*.c   -o -name \*.cpp | xargs lizard  #--html -o ${OUTPUT_FOLDER}/complexity.html
-
-lizard ./target/main/Components/esp32Cam/src/esp32Cam.cpp
+find . -not \( -path ./target/main/Components/esp32Cam_API -prune -o -path ./target/main/Components/image_conversions -prune -o -path ./target/build -prune \) \
+-name \*.h  -o -name \*.hpp -o -name \*.c   -o -name \*.cpp | xargs lizard  --html -o ${OUTPUT_FOLDER}/complexity.html
