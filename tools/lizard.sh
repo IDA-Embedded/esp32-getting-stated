@@ -6,8 +6,9 @@ OUTPUT_FOLDER=./docs/complexity
 # we are excluding */build folder aswell as */ThirdPartAPI and */test as we do not want to make any changes to these files.
 echo "looking through folders .... "
 
-echo find . -not \( -path ./target/main/Components/esp32Cam_API -prune -o -path ./target/main/Components/image_conversions -prune -o -path ./target/build -prune \) \
+find . -not \( -path ./target/main/Components/esp32Cam_API -prune -o -path ./target/main/Components/image_conversions -prune -o -path ./target/build -prune \) \
 -name \*.h* -o -name \*.c*
+
 
 find . -not \( -path ./target/main/Components/esp32Cam_API -prune -o -path ./target/main/Components/image_conversions -prune -o -path ./target/build -prune \) \
 -name \*.h* -o -name \*.c* | xargs lizard  #--html -o ${OUTPUT_FOLDER}/complexity.html
