@@ -46,7 +46,7 @@ void sendHTTP()
 	{
 		std::cout << "looping ...\n ";
 		Timeservice::wait_sec(5);
-		m_http.post("/esp32_test", esp32_http_sal::content_type::TEXT, "test string");
+		m_http.post("/esp32_postTest", esp32_http_sal::content_type::TEXT, "test string");
 	}
 }
 
@@ -91,5 +91,6 @@ void postImageToServer()
 
 void app_main(void)
 {
-	postImageToServer();
+	//postImageToServer();
+	sendHTTP();
 }

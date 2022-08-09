@@ -20,7 +20,7 @@
 
 #include "../include/esp32_http_sal.hpp"
 #include "../include/esp32_http_settings.hpp"
-#define DEBUG // default uncommeted
+//#define DEBUG // default uncommeted
 
 //#ifdef DEBUG
 static const char* LOG_TAG = "esp32_sal";
@@ -213,6 +213,7 @@ general_err_t esp32_http_sal::post(const std::string& api_call, const content_ty
 			break;
 		}
 		case content_type::TEXT: {
+			esp_http_client_set_header(m_client, "Content-Type", "text/html");
 			break;
 		}
 	}
