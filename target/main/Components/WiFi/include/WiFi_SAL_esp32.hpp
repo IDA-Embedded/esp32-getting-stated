@@ -87,9 +87,9 @@ class WiFi_SAL_esp32 final : public WiFiBase
 	general_err_t disconnect() override;
 
   private:
-	esp_event_handler_instance_t instance_any_id; // initialized @ connect() 
-	esp_event_handler_instance_t instance_got_ip; // initialized @ connect() 
-	wifi_init_config_t m_cfg; // initialized @ connect() 
+	esp_event_handler_instance_t instance_any_id; // initialized @ connect()
+	esp_event_handler_instance_t instance_got_ip; // initialized @ connect()
+	wifi_init_config_t m_cfg; // initialized @ connect()
 
 	static void event_handler(void* arg, esp_event_base_t event_base, int32_t event_id,
 							  void* event_data);

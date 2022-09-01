@@ -91,6 +91,7 @@ void postImageToServer()
 
 void app_main(void)
 {
-	//postImageToServer();
 	sendHTTP();
+	// postImageToServer();
+	
 }
