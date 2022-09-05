@@ -25,8 +25,13 @@ flash: | $(BUILD)
 	$(Q) cd $(BUILD);  idf.py -p /dev/ttyUSB0 flash monitor;
 	# flash integration target slow
 .PHONY: flash_slow
-flash_slow: | $(INT_BUILD)
+flash_slow: | $(BUILD)
 	$(Q) cd $(BUILD);  idf.py -b 115200 -p /dev/ttyUSB0 flash monitor;
+
+.PHONY: view
+view: | $(BUILD)
+	$(Q) cd $(BUILD);  idf.py monitor;
+
 
 .PHONY: getESPSDK
 getESPSDK: |

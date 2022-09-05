@@ -29,6 +29,8 @@ idf_component_register(SRC_DIRS "."
               SRC_DIRS "${COMP_PATH}/WiFi/src/"
              INCLUDE_DIRS "${COMP_PATH}/WiFi/include/"
              
+             SRC_DIRS "${COMP_PATH}/ExampleCode/src/"
+             INCLUDE_DIRS "${COMP_PATH}/ExampleCode/include/"
              )
 
 ###############################################################################################################
@@ -39,14 +41,7 @@ target_compile_definitions(${COMPONENT_LIB} PRIVATE
 __ESP32__=1
 PROJECT_NAME="IDAE_ESP_GETTING_STARTED"
 )
-target_compile_definitions(${COMPONENT_LIB} PRIVATE
-GLOBAL_MQTT_SERVER="mqtt://1.1.1.1:1883"
-MQTT_OTA_TOPIC="mqtt/${PROJECT_NAME}"
-WIFI_SSID_LOCAL="IDA Embedded Workshop"
-WIFI_PWD_LOCAL="abcd1234"
-SERVER_IP="192.168.1.66"
-SERVER_PORT=1880
-)
+
 
 ###############################################################################################################
 #						INSTALL SECRETS
