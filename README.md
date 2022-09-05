@@ -6,7 +6,7 @@ Simple and robust getting started project for esp32 mcu
 In order to get started, we need to download the example project onto our computer.
 It is expected that the computer runs linux, preferable ubuntu 20 or newer. 
 
-## Installing the basics
+## 1) Installing the basics
 We will start out by executing the install script located in the tools folder, with the name 'install_requirements.sh'
 Obviously we cannot simply install stuff without knowing what is included. A brief overview of what is installed in the script:
 
@@ -17,7 +17,7 @@ Obviously we cannot simply install stuff without knowing what is included. A bri
 
 In order to execute the script, open op a terminal in the root folder of the project and write 'sudo ./tools/install_requirements.sh'
 
-## Installing the espressif SDK
+## 2) Installing the espressif SDK
 Next up is downloading and installing the espressif SDK whitch we use to compile the esp32 target
 Again looking inside the next install script called 'installESPIDF.sh' located in the tools folder, we can see what is going on:
 
@@ -27,18 +27,19 @@ Again looking inside the next install script called 'installESPIDF.sh' located i
 
 In order to execute the command, open up a terminal in the root folder of the project and write 'make getESPSDK'
 
-## Compile the example project
+## 3) Compile the example project
 At this point everything should have been setup correctly and we are ready to compile the example project.
 We will be using the simple make command to achive this. 
 
 In order to execute the command, open up a terminal in the root folder of the project and write 'make'
 
-## Flash the project to the target
+## 4) Flash the project to the target
 As the project is now compiled we just need to flash it to our esp32 target.
 This will also be done through the make command by writing 'make flash_slow'
 - We use the 'flash_slow" command when we are working with esp32Cams as they require a lower baudrate
 
 In order to execute the command, open up a terminal in the root folder of the project and write 'make flash_slow'
+
 
 
 
