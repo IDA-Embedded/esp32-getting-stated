@@ -10,10 +10,9 @@ sudo apt -y upgrade
 
 # install prerequisites
 echo "installing prerequisites" 
-
-#install cmake
-pip3 install cmake
-sudi apt-get install cmake-qt-gui
+# install cmake 
+python3 -m pip install cmake
+sudo apt-get install cmake-qt-gui
 #install ninja
 sudo apt-get install -y ninja-build
 
@@ -21,11 +20,9 @@ sudo apt-get install -y ninja-build
 sudo apt install doxygen cppcheck gcovr lcov clang-format clang-tidy clang-tools graphviz 
 
 # code complexity analysis
-pip3 install lizard
+python3 -m pip install lizard
 
-
-
-sudo apt-get install git wget flex bison gperf python3 python3-pip python3-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
+sudo apt-get install git wget flex bison gperf python3 python3-pip python3-setuptools ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
 echo "done ..."
 ########################################################################################################
 

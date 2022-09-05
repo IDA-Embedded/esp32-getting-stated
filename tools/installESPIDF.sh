@@ -11,9 +11,6 @@ then
     exit 0
 fi
 
-
-sh ./tools/install_requirements.sh
-
 # Save current working directory
 cwd=$(pwd)
 
